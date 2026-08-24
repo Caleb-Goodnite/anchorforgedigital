@@ -37,6 +37,8 @@
 	}
 </script>
 
+<svelte:window onkeydown={(event) => event.key === 'Escape' && closeMobile()} />
+
 <header class="nav-wrapper" class:scrolled aria-label="Site header">
 	<nav class="nav-inner" aria-label="Main navigation">
 		<a class="nav-logo" href="#top" aria-label="Anchorforge Digital home">
@@ -60,8 +62,10 @@
 
 		<button
 			class="nav-hamburger"
+			type="button"
 			aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
 			aria-expanded={mobileOpen}
+			aria-controls="mobile-navigation-menu"
 			onclick={() => (mobileOpen = !mobileOpen)}
 		>
 			<span class="hamburger-line" class:open={mobileOpen}></span>
@@ -71,18 +75,28 @@
 </header>
 
 {#if mobileOpen}
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
 	<!-- svelte-ignore a11y_click_events_have_key_events -->
-	<div
-		class="mobile-overlay"
-		onclick={closeMobile}
-		onkeydown={(e) => e.key === 'Escape' && closeMobile()}
-	>
+	<div class="mobile-overlay" role="presentation" onclick={closeMobile}>
 		<!-- svelte-ignore a11y_click_events_have_key_events -->
-		<div class="mobile-menu glass-heavy" onclick={(e) => e.stopPropagation()}>
+		<div
+			id="mobile-navigation-menu"
+			class="mobile-menu glass-heavy"
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="mobile-navigation-title"
+			tabindex="-1"
+			onclick={(e) => e.stopPropagation()}
+		>
 			<div class="mobile-menu-header">
-				<span class="mobile-brand">Anchorforge Digital</span>
-				<button class="mobile-close-btn" aria-label="Close menu" onclick={closeMobile}>✕</button>
+				<span id="mobile-navigation-title" class="mobile-brand">Anchorforge Digital</span>
+				<button
+					class="mobile-close-btn"
+					type="button"
+					aria-label="Close menu"
+					onclick={closeMobile}
+				>
+					✕
+				</button>
 			</div>
 			<nav class="mobile-nav" aria-label="Mobile navigation">
 				{#each navLinks as link (link.label)}
