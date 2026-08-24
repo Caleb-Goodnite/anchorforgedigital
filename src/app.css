@@ -111,6 +111,7 @@ body {
 	min-width: 320px;
 	min-height: 100vh;
 	overflow-x: hidden;
+	padding-bottom: env(safe-area-inset-bottom);
 	background: var(--color-bg);
 	color: var(--color-text);
 	font-family: var(--font-body);
@@ -429,6 +430,14 @@ main {
 	position: relative;
 	min-height: 100vh;
 	background: var(--color-bg);
+}
+
+/* Keep flexible children from creating accidental horizontal overflow. */
+main > *,
+section,
+article,
+.page-container {
+	min-width: 0;
 }
 
 /* --- REDUCED MOTION --- */

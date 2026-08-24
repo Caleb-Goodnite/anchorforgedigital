@@ -253,6 +253,10 @@
 	}
 
 	.preview-url {
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 		font-family: var(--font-mono);
 		font-size: var(--text-xs);
 		color: var(--color-text-secondary);
@@ -352,9 +356,14 @@
 		align-items: center;
 		gap: var(--space-3);
 		margin-bottom: var(--space-2);
+		min-width: 0;
 	}
 
 	.project-category {
+		min-width: 0;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 		font-family: var(--font-mono);
 		font-size: var(--text-xs);
 		color: var(--color-text-muted);
@@ -460,6 +469,14 @@
 	}
 
 	@media (max-width: 430px) {
+		.preview-header {
+			gap: var(--space-2);
+		}
+
+		.window-dots {
+			flex-shrink: 0;
+		}
+
 		.project-meta {
 			padding: var(--space-4);
 		}

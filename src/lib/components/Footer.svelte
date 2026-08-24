@@ -106,6 +106,8 @@
 	}
 
 	.footer-email {
+		max-width: 100%;
+		overflow-wrap: anywhere;
 		font-family: var(--font-mono);
 		font-size: var(--text-xs);
 		color: var(--color-text-muted);

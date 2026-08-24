@@ -23,9 +23,17 @@
 		content="Professional websites for small businesses that need a clear, affordable place to start online."
 	/>
 	<meta property="og:image" content="https://anchorforgedigital.com/images/anchorforge-hero.png" />
+	<meta property="og:image:alt" content="Warm, atmospheric Anchorforge Digital forge scene" />
 	<meta property="og:site_name" content="Anchorforge Digital" />
 	<meta property="og:locale" content="en_US" />
 	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Affordable Small Business Websites | Anchorforge Digital" />
+	<meta
+		name="twitter:description"
+		content="Professional websites for small businesses that need a clear, affordable place to start online."
+	/>
+	<meta name="twitter:image" content="https://anchorforgedigital.com/images/anchorforge-hero.png" />
+	<meta name="twitter:image:alt" content="Warm, atmospheric Anchorforge Digital forge scene" />
 	<meta name="theme-color" content="#0a0a0a" />
 	<script type="application/ld+json">
 		{
@@ -131,6 +139,7 @@
 		max-width: var(--page-max);
 		margin: 0 auto;
 		padding: 0 var(--page-padding);
+		min-width: 0;
 	}
 
 	.starting-points,
@@ -173,6 +182,7 @@
 	.path-card {
 		display: flex;
 		flex-direction: column;
+		min-width: 0;
 		min-height: 330px;
 		padding: var(--space-8);
 		border-radius: var(--radius-lg);
@@ -222,6 +232,7 @@
 	}
 
 	.process-grid article {
+		min-width: 0;
 		padding-top: var(--space-5);
 		border-top: 1px solid var(--color-border-strong);
 	}

@@ -111,7 +111,7 @@
 		left: 0;
 		right: 0;
 		z-index: 100;
-		padding: var(--space-4) var(--page-padding);
+		padding: max(var(--space-4), env(safe-area-inset-top)) var(--page-padding) 0;
 		transition: padding var(--duration-base) var(--ease-out);
 	}
 
@@ -320,7 +320,7 @@
 	}
 
 	/* Responsive */
-	@media (max-width: 768px) {
+	@media (max-width: 900px) {
 		.nav-links-desktop {
 			display: none;
 		}
