@@ -31,9 +31,11 @@ npm run dev -- --open
 
 ### Contact form email
 
-The contact form sends inquiries server-side through Nodemailer. Copy `.env.example` to `.env` and
-set the SMTP values for your email provider before testing or deploying. Keep `.env` private and
-configure the same variables in your hosting provider's environment settings.
+The contact form sends inquiries server-side through Nodemailer and Gmail. Copy `.env.example` to
+`.env`, then set `GMAIL_USER` to the Gmail address that will send the messages and
+`GMAIL_APP_PASSWORD` to a Google App Password. App Passwords require 2-Step Verification; do not
+use your normal Gmail password. Keep `.env` private and configure the same variables in your
+hosting provider's environment settings.
 
 ## Building
 

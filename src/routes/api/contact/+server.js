@@ -2,6 +2,8 @@ import { json } from '@sveltejs/kit';
 import { env } from '$env/dynamic/private';
 import nodemailer from 'nodemailer';
 
+const gmailUser = env.GMAIL_USER || env.SMTP_USER;
+const gmailAppPassword = env.GMAIL_APP_PASSWORD || env.SMTP_PASS;
 const recipient = env.CONTACT_TO || 'anchorforgedigital@gmail.com';
 const projectTypes = new Set([
 	'Standard — $200',
@@ -21,13 +23,9 @@ function isValidEmail(value) {
 }
 
 function createTransporter() {
-	const port = Number(env.SMTP_PORT || 587);
-
 	return nodemailer.createTransport({
-		host: env.SMTP_HOST,
-		port,
-		secure: port === 465,
-		auth: env.SMTP_USER && env.SMTP_PASS ? { user: env.SMTP_USER, pass: env.SMTP_PASS } : undefined
+		service: 'gmail',
+		auth: { user: gmailUser, pass: gmailAppPassword }
 	});
 }
 
@@ -54,7 +52,7 @@ export async function POST({ request }) {
 		return json({ error: 'Please complete every field with valid information.' }, { status: 400 });
 	}
 
-	if (!env.SMTP_HOST) {
+	if (!gmailUser || !gmailAppPassword) {
 		return json(
 			{ error: 'The contact form is temporarily unavailable. Please email us directly.' },
 			{ status: 503 }
@@ -63,7 +61,7 @@ export async function POST({ request }) {
 
 	try {
 		await createTransporter().sendMail({
-			from: env.MAIL_FROM || env.SMTP_USER || recipient,
+			from: env.MAIL_FROM || gmailUser || recipient,
 			to: recipient,
 			replyTo: senderEmail,
 			subject: `New Anchorforge project inquiry — ${projectType}`,
