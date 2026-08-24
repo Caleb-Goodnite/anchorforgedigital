@@ -3,40 +3,60 @@
 
 	const packages = [
 		{
+			number: '01',
 			name: 'Standard',
 			price: '$200',
 			description:
-				'One-page business website with company information, services, hours, contact information, map links, and responsive mobile design.'
+				'One-page static reactive business website: company info, services, hours, contact, map links, responsive mobile design.',
+			example: 'A new salon or contractor needing a basic presence.',
+			turnaround: 'Typical turnaround: 3–5 business days.'
 		},
 		{
+			number: '02',
 			name: 'Standard Plus',
-			price: '$275+',
+			price: '$275',
 			description:
-				'Everything in Standard, plus animations, reactive sections, transitions, and additional visual polish.'
+				'Everything in Standard, plus animations, reactive sections, transitions, and additional visual polish.',
+			example: 'A local service business ready to make a stronger first impression.',
+			turnaround: 'Typical turnaround: 5–7 business days.'
 		},
 		{
+			number: '03',
 			name: 'Pro',
-			price: '$400+',
+			price: '$450+',
 			description:
-				'Up to 3 pages with custom design, responsive layouts, motion, and more advanced interactive sections.'
+				'Up to 3 pages with custom design, responsive layouts, motion, and advanced interactive sections.',
+			example:
+				'A growing company that needs distinct pages for its offer, story, and contact path.',
+			turnaround: 'Typical turnaround: 1–2 weeks.'
 		},
 		{
+			number: '04',
 			name: 'Pro Plus',
-			price: '$550+',
+			price: '$650+',
 			description:
-				'3–5 pages with business functionality such as contact forms, email workflows, databases, or basic admin features.'
+				'3–5 pages with business functionality: contact forms, email workflows, databases, or basic admin features.',
+			example:
+				'A business replacing manual inquiries with forms, email, and a simple admin workflow.',
+			turnaround: 'Typical turnaround: 2–3 weeks.'
 		},
 		{
+			number: '05',
 			name: 'Max',
-			price: '$750+',
+			price: '$950+',
 			description:
-				'5+ pages with advanced functionality, backend systems, email automation, payments, integrations, and custom business logic.'
+				'5+ pages with advanced functionality, backend systems, email automation, payments, integrations, and custom business logic.',
+			example: 'A larger operation that needs its website to support daily business processes.',
+			turnaround: 'Typical turnaround: 3–5 weeks.'
 		},
 		{
+			number: '06',
 			name: 'Max Plus',
-			price: 'Custom',
+			price: 'Custom, typically starting around $1,500+',
 			description:
-				'Larger or more complex projects requiring substantial custom development, ecommerce, advanced dashboards, accounts, complex integrations, or functionality outside the standard packages.'
+				'Larger or more complex projects: custom admin panels, desktop applications, in-store kiosks, POS/inventory integrations, or multi-surface systems requiring substantial custom development.',
+			example: 'A retailer or organization connecting a public site to custom internal tools.',
+			turnaround: 'Typical turnaround: scoped project timeline.'
 		}
 	];
 </script>
@@ -48,14 +68,17 @@
 			<h2 class="pricing-title">
 				<span class="pricing-title-serif">Investment</span>
 			</h2>
+			<p class="pricing-positioning">
+				A one-time build shaped around your business—not an ongoing monthly subscription tool.
+			</p>
 		</header>
 
 		<div class="pricing-list" role="list">
-			{#each packages as pkg, i (pkg.name)}
+			{#each packages as pkg (pkg.name)}
 				<article class="pricing-row glass-interactive" role="listitem">
 					<div class="pricing-row-inner">
 						<div class="pricing-name-col">
-							<span class="pricing-index">{String(i + 1).padStart(2, '0')}</span>
+							<span class="pricing-index">{pkg.number}</span>
 							<span class="pricing-name">{pkg.name}</span>
 						</div>
 						<div class="pricing-price-col">
@@ -63,6 +86,8 @@
 						</div>
 						<div class="pricing-desc-col">
 							<p class="pricing-desc">{pkg.description}</p>
+							<p class="pricing-example"><strong>Good fit:</strong> {pkg.example}</p>
+							<p class="pricing-turnaround">{pkg.turnaround}</p>
 						</div>
 					</div>
 				</article>
@@ -111,6 +136,14 @@
 		font-style: italic;
 		line-height: 0.9;
 		letter-spacing: -0.02em;
+	}
+
+	.pricing-positioning {
+		max-width: 560px;
+		margin-top: var(--space-6);
+		font-size: var(--text-md);
+		font-weight: 300;
+		color: var(--color-text-secondary);
 	}
 
 	/* Pricing List */
@@ -187,6 +220,19 @@
 		line-height: 1.6;
 		color: var(--color-text-secondary);
 		max-width: 480px;
+	}
+
+	.pricing-example,
+	.pricing-turnaround {
+		margin-top: var(--space-3);
+		font-size: var(--text-xs);
+		line-height: 1.55;
+		color: var(--color-text-muted);
+	}
+
+	.pricing-example strong {
+		font-weight: 500;
+		color: var(--color-text-secondary);
 	}
 
 	/* Footer */

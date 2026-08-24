@@ -1,5 +1,6 @@
 <script>
 	import Footer from '$lib/components/Footer.svelte';
+	import ContactForm from '$lib/components/ContactForm.svelte';
 	import Hero from '$lib/components/Hero.svelte';
 	import Nav from '$lib/components/Nav.svelte';
 	import Pricing from '$lib/components/Pricing.svelte';
@@ -118,19 +119,78 @@
 				<h2 id="resources-title">Useful answers before you <em>build</em>.</h2>
 			</div>
 			<div class="resource-list">
-				<a href="mailto:anchorforgedigital@gmail.com?subject=Do I need a website?">
-					<span>Do I need a website for my small business?</span><b>↗</b>
-				</a>
-				<a href="mailto:anchorforgedigital@gmail.com?subject=Small business website planning">
-					<span>What should go on my first business website?</span><b>↗</b>
-				</a>
-				<a href="mailto:anchorforgedigital@gmail.com?subject=Website and SEO question">
-					<span>How does a new website start showing up in Google?</span><b>↗</b>
-				</a>
+				<article class="guide-answer">
+					<h3>Do I need a website for my small business?</h3>
+					<p>
+						If customers search for your business, a website gives them one reliable place to
+						understand what you do and take the next step. Social profiles and directory listings
+						are useful, but they are rented spaces: layouts change, information gets buried, and not
+						everyone uses the same platform. A simple website can bring together your services,
+						hours, location, contact options, photos, and answers to the questions people ask before
+						they call.
+					</p>
+					<p>
+						You may not need a large site. For many new salons, contractors, shops, and independent
+						professionals, one focused page is enough to look established and make the business easy
+						to find. The right first site should match where your business is now, not force you
+						into a large monthly tool or a complicated system you will not use.
+					</p>
+					<p>
+						It also gives you an asset you control: a stable address you can put on a sign, business
+						card, invoice, email signature, and Google Business Profile. If your business changes,
+						the site can change with it without rebuilding your whole online presence.
+					</p>
+				</article>
+				<article class="guide-answer">
+					<h3>What should go on my first business website?</h3>
+					<p>
+						Start with the information a customer needs to decide whether to contact you. Explain
+						what you offer in plain language, who you serve, where you work, and how someone can
+						reach you. Include current hours, service areas, pricing guidance when useful, an
+						address or map link, and one obvious action such as call, email, book, or request a
+						quote. A short introduction and a few real photos can also do more for trust than a long
+						list of features.
+					</p>
+					<p>
+						Your first website does not need to answer every possible question or launch with ten
+						pages. It should be accurate, quick to load, easy to use on a phone, and structured so
+						search engines understand your business. From there, you can add service pages, FAQs,
+						booking, payments, or other tools when a real business need appears.
+					</p>
+					<p>
+						Before building, gather your logo, business description, service list, hours, contact
+						details, photos, service area, and any links customers should use. Clear source material
+						makes the build faster and helps the finished site sound like your business.
+					</p>
+				</article>
+				<article class="guide-answer">
+					<h3>How does a new website start showing up in Google?</h3>
+					<p>
+						Google first needs to discover and index your site. A clear page title, useful headings,
+						descriptive copy, fast mobile experience, sitemap, and Search Console submission help it
+						understand what the site is about. For local businesses, consistent business details and
+						a complete Google Business Profile are just as important as the website itself.
+					</p>
+					<p>
+						Ranking takes time and depends on competition, relevance, location, and trust. A new
+						site is unlikely to rank immediately for broad terms like “website” or “contractor.” It
+						has a better starting chance with specific searches that match the business, such as a
+						service and city. Publishing genuinely useful answers, earning relevant local mentions,
+						and keeping business information current gives search engines more reasons to show it
+						over time.
+					</p>
+					<p>
+						There is no honest shortcut or guaranteed position. The goal is to make each page the
+						clearest, most useful answer for a real customer search, then measure impressions and
+						clicks in Search Console and improve from there. SEO is an ongoing process, not a switch
+						that gets flipped at launch.
+					</p>
+				</article>
 			</div>
 		</div>
 	</section>
 	<Pricing />
+	<ContactForm />
 </main>
 <Footer />
 
@@ -254,26 +314,25 @@
 	.resource-list {
 		border-top: 1px solid var(--color-border);
 	}
-	.resource-list a {
-		display: flex;
-		justify-content: space-between;
-		gap: var(--space-6);
-		padding: var(--space-6) 0;
+	.guide-answer {
+		padding: var(--space-8) 0;
 		border-bottom: 1px solid var(--color-border);
+	}
+	.guide-answer h3 {
+		margin-bottom: var(--space-4);
+		font-family: var(--font-display);
+		font-size: clamp(1.6rem, 3vw, 2.4rem);
+		font-style: italic;
+		line-height: 1.1;
+	}
+	.guide-answer p {
+		max-width: 760px;
+		margin-top: var(--space-4);
+		font-size: var(--text-sm);
+		font-weight: 300;
+		line-height: 1.75;
 		color: var(--color-text-secondary);
-		transition:
-			color var(--duration-fast) var(--ease-out),
-			padding var(--duration-fast) var(--ease-out);
 	}
-	.resource-list a:hover {
-		padding-left: var(--space-3);
-		color: var(--color-text);
-	}
-	.resource-list b {
-		color: var(--color-forge-hot);
-		font-weight: 400;
-	}
-
 	@media (max-width: 768px) {
 		.path-grid,
 		.process-grid,

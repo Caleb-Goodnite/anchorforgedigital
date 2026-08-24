@@ -7,7 +7,11 @@
 				'A full-stack online bookstore built to extend a physical book store into online sales, with a SvelteKit storefront, Square payments, PocketBase inventory, an Electron admin panel, and an in-store inventory kiosk.',
 			capabilities: ['Launch', 'Business Systems', 'Payments', 'Database', 'Desktop'],
 			url: 'https://bookreviewsks.vercel.app',
+			screenshot: '/images/projects/bookreviews-preview.png',
 			label: 'Live Project',
+			problem:
+				'A physical bookstore needed a storefront that could support online sales and in-store operations.',
+			outcome: 'One connected system for shopping, payments, inventory, and the in-store kiosk.',
 			featured: true
 		},
 		{
@@ -17,7 +21,12 @@
 				'A custom wedding website with a purpose-built RSVP workflow. Guest submissions are stored in Supabase, with formatted confirmation emails automatically sent to both the attendee and event host.',
 			capabilities: ['Launch', 'Business Systems', 'Forms', 'Database', 'Email'],
 			url: 'https://hannahweddin.vercel.app',
+			screenshot: '/images/projects/hannah-jim-preview.png',
 			label: 'Live Project',
+			problem:
+				'A wedding celebration needed one clear place for guests, details, RSVPs, and updates.',
+			outcome:
+				'A custom event site with RSVP collection and confirmation emails for guests and hosts.',
 			featured: false
 		}
 	];
@@ -66,26 +75,12 @@
 						</div>
 
 						<div class="preview-body">
-							<div class="preview-hero-mock">
-								<span class="mock-tag">
-									{project.category}
-								</span>
-
-								<h4 class="mock-title">
-									{project.name}
-								</h4>
-
-								<div class="mock-lines" aria-hidden="true">
-									<div class="line line-1"></div>
-									<div class="line line-2"></div>
-								</div>
-
-								<div class="mock-cards" aria-hidden="true">
-									<div class="mock-card"></div>
-									<div class="mock-card"></div>
-									<div class="mock-card"></div>
-								</div>
-							</div>
+							<img
+								class="project-screenshot"
+								src={project.screenshot}
+								alt={`Screenshot of the ${project.name} website`}
+								loading="lazy"
+							/>
 						</div>
 					</a>
 					<!-- eslint-enable svelte/no-navigation-without-resolve -->
@@ -113,6 +108,11 @@
 						<p class="project-desc">
 							{project.description}
 						</p>
+
+						<div class="project-outcomes">
+							<p><strong>Problem</strong> {project.problem}</p>
+							<p><strong>Outcome</strong> {project.outcome}</p>
+						</div>
 
 						<div class="project-caps">
 							{#each project.capabilities as cap (cap)}
@@ -280,68 +280,16 @@
 
 	.preview-body {
 		padding: var(--space-8);
-		background: linear-gradient(145deg, rgba(16, 16, 16, 0.95), rgba(8, 8, 8, 0.98));
-		min-height: 250px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		background: rgba(8, 8, 8, 0.98);
 	}
 
-	.preview-hero-mock {
-		display: flex;
-		flex-direction: column;
-		gap: var(--space-3);
-	}
-
-	.mock-tag {
-		font-family: var(--font-mono);
-		font-size: 0.65rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		color: var(--color-forge-glow);
-	}
-
-	.mock-title {
-		font-family: var(--font-display);
-		font-size: clamp(1.6rem, 3.5vw, 2.6rem);
-		font-style: italic;
-		font-weight: 400;
-		color: var(--color-text);
-		line-height: 1.15;
-	}
-
-	.mock-lines {
-		display: flex;
-		flex-direction: column;
-		gap: 6px;
-		max-width: 320px;
-		margin-bottom: var(--space-2);
-	}
-
-	.line {
-		height: 6px;
-		border-radius: 3px;
-		background: rgba(255, 255, 255, 0.08);
-	}
-
-	.line-1 {
+	.project-screenshot {
 		width: 100%;
-	}
-	.line-2 {
-		width: 65%;
-	}
-
-	.mock-cards {
-		display: flex;
-		gap: var(--space-3);
-	}
-
-	.mock-card {
-		flex: 1;
-		height: 44px;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		object-position: top center;
+		border: 1px solid rgba(255, 255, 255, 0.08);
 		border-radius: var(--radius-sm);
-		background: rgba(255, 255, 255, 0.03);
-		border: 1px solid rgba(255, 255, 255, 0.06);
 	}
 
 	/* Metadata */
@@ -456,15 +404,29 @@
 		gap: var(--space-2);
 	}
 
+	.project-outcomes {
+		display: grid;
+		gap: var(--space-2);
+		margin-bottom: var(--space-4);
+		font-size: var(--text-sm);
+		line-height: 1.6;
+		color: var(--color-text-secondary);
+	}
+
+	.project-outcomes strong {
+		font-family: var(--font-mono);
+		font-size: var(--text-xs);
+		font-weight: 500;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+		color: var(--color-forge-hot);
+	}
+
 	/* Responsive */
 	@media (max-width: 900px) {
 		.project-offset {
 			width: 100%;
 			margin-left: 0;
-		}
-
-		.mock-cards {
-			display: none;
 		}
 	}
 

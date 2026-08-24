@@ -17,6 +17,10 @@
 				<a href="#services">Services</a>
 				<a href="#pricing">Rates</a>
 				<a href={`mailto:${email}`}>Contact</a>
+				<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+				<a href="/privacy">Privacy</a>
+				<!-- eslint-disable-next-line svelte/no-navigation-without-resolve -->
+				<a href="/terms">Terms</a>
 			</nav>
 		</div>
 

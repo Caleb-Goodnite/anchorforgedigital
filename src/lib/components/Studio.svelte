@@ -45,6 +45,15 @@
 					</div>
 				{/each}
 			</div>
+
+			<div class="founder-card">
+				<span class="kicker">// Founder</span>
+				<p>
+					Anchorforge Digital is built by <strong>Caleb Goodnite</strong>, the designer and
+					developer behind the work. You talk directly to the person shaping and building your
+					site—from the first conversation through launch.
+				</p>
+			</div>
 		</div>
 	</div>
 </section>
@@ -120,6 +129,31 @@
 		font-weight: 300;
 		line-height: 1.65;
 		color: var(--color-text-secondary);
+	}
+
+	.founder-card {
+		margin-top: var(--space-16);
+		padding: var(--space-6) 0 0 var(--space-6);
+		border-left: 1px solid var(--color-forge-warm);
+		border-top: 1px solid var(--color-border-subtle);
+	}
+
+	.founder-card .kicker {
+		display: block;
+		margin-bottom: var(--space-4);
+	}
+
+	.founder-card p {
+		max-width: 500px;
+		font-size: var(--text-md);
+		font-weight: 300;
+		line-height: 1.7;
+		color: var(--color-text-secondary);
+	}
+
+	.founder-card strong {
+		font-weight: 500;
+		color: var(--color-text);
 	}
 
 	/* Responsive */
