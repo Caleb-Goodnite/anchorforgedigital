@@ -29,6 +29,12 @@ npm run dev
 npm run dev -- --open
 ```
 
+### Contact form email
+
+The contact form sends inquiries server-side through Nodemailer. Copy `.env.example` to `.env` and
+set the SMTP values for your email provider before testing or deploying. Keep `.env` private and
+configure the same variables in your hosting provider's environment settings.
+
 ## Building
 
 To create a production version of your app:
@@ -40,4 +46,5 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+
 # anchorforgedigital

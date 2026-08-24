@@ -13,16 +13,36 @@
 	let senderEmail = $state('');
 	let projectType = $state(projectTypes[0]);
 	let message = $state('');
+	let website = $state('');
 	let submitted = $state(false);
+	let submitting = $state(false);
+	let error = $state('');
 
-	function submitForm() {
-		const subject = encodeURIComponent(`Anchorforge project inquiry — ${projectType}`);
-		const body = encodeURIComponent(
-			`Name: ${name}\nEmail: ${senderEmail}\nProject type: ${projectType}\n\n${message}`
-		);
+	async function submitForm() {
+		submitting = true;
+		submitted = false;
+		error = '';
 
-		window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-		submitted = true;
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'content-type': 'application/json' },
+				body: JSON.stringify({ name, email: senderEmail, projectType, message, website })
+			});
+			const result = await response.json();
+
+			if (!response.ok) throw new Error(result.error);
+			submitted = true;
+			name = '';
+			senderEmail = '';
+			message = '';
+			website = '';
+		} catch (requestError) {
+			error =
+				requestError.message || 'We could not send your message. Please email us directly instead.';
+		} finally {
+			submitting = false;
+		}
 	}
 </script>
 
@@ -65,13 +85,18 @@
 				<label for="message">What are you hoping to build?</label>
 				<textarea id="message" bind:value={message} required rows="5"></textarea>
 			</div>
-			<button class="btn-primary" type="submit"
-				>Open project email <span aria-hidden="true">↗</span></button
-			>
+			<div class="form-honeypot" aria-hidden="true">
+				<label for="website">Website</label>
+				<input id="website" name="website" bind:value={website} tabindex="-1" autocomplete="off" />
+			</div>
+			<button class="btn-primary" type="submit" disabled={submitting}>
+				{submitting ? 'Sending…' : 'Send project inquiry'} <span aria-hidden="true">↗</span>
+			</button>
 			{#if submitted}
-				<p class="form-note" role="status">
-					Your email app should open with the project details ready to send.
-				</p>
+				<p class="form-note" role="status">Message sent. We’ll get back to you soon.</p>
+			{/if}
+			{#if error}
+				<p class="form-error" role="alert">{error}</p>
 			{/if}
 		</form>
 	</div>
@@ -167,6 +192,24 @@
 	.form-note {
 		font-size: var(--text-xs);
 		color: var(--color-forge-hot);
+	}
+
+	.form-error {
+		font-size: var(--text-xs);
+		color: #ff9d9d;
+	}
+
+	.form-honeypot {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+	}
+
+	button:disabled {
+		cursor: wait;
+		opacity: 0.65;
 	}
 
 	@media (max-width: 768px) {

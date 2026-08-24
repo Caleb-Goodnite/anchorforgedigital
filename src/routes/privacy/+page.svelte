@@ -20,6 +20,15 @@
 		</p>
 	</section>
 	<section>
+		<h2>Contact form email</h2>
+		<p>
+			The contact form sends the information you submit through our email service using Nodemailer
+			and SMTP. Your name, email address, selected project type, and message are sent to Anchorforge
+			Digital so we can respond. We retain correspondence only as long as reasonably needed for
+			communication, project planning, delivery, and business records.
+		</p>
+	</section>
+	<section>
 		<h2>How information is used</h2>
 		<p>
 			We do not sell your personal information. Information is used to communicate with you, prepare
