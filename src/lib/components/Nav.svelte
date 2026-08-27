@@ -1,4 +1,6 @@
 <script>
+	import logo from '$lib/assets/anchorforge-logo.svg';
+
 	let scrolled = $state(false);
 	let mobileOpen = $state(false);
 
@@ -42,7 +44,7 @@
 <header class="nav-wrapper" class:scrolled aria-label="Site header">
 	<nav class="nav-inner" aria-label="Main navigation">
 		<a class="nav-logo" href="#top" aria-label="Anchorforge Digital home">
-			<span class="logo-mark">a</span>
+			<img class="logo-mark" src={logo} alt="" />
 		</a>
 
 		<div class="nav-links-desktop">
@@ -181,12 +183,13 @@
 	}
 
 	.logo-mark {
-		font-family: var(--font-display);
-		font-size: 1.2rem;
-		font-style: italic;
-		font-weight: 500;
-		line-height: 1;
-		color: var(--color-text);
+		width: 28px;
+		height: 28px;
+		object-fit: cover;
+		border: 0;
+		border-radius: 0;
+		background: none;
+		flex-shrink: 0;
 	}
 
 	.nav-links-desktop {

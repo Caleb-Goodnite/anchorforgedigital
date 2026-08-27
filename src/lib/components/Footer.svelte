@@ -1,4 +1,6 @@
 <script>
+	import logo from '$lib/assets/anchorforge-logo.svg';
+
 	const email = 'anchorforgedigital@gmail.com';
 	const year = new Date().getFullYear();
 </script>
@@ -7,7 +9,7 @@
 	<div class="footer-container">
 		<div class="footer-top">
 			<div class="footer-brand">
-				<span class="footer-logo">a</span>
+				<img class="footer-logo" src={logo} alt="" />
 				<span class="footer-name">Anchorforge Digital</span>
 			</div>
 
@@ -61,15 +63,10 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: 36px;
-		height: 36px;
-		border: 1px solid rgba(255, 255, 255, 0.12);
+		width: 42px;
+		height: 42px;
+		object-fit: cover;
 		border-radius: 50%;
-		font-family: var(--font-display);
-		font-size: 1.1rem;
-		font-style: italic;
-		font-weight: 500;
-		color: var(--color-text-secondary);
 	}
 
 	.footer-name {

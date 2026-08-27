@@ -13,21 +13,6 @@
 				'A physical bookstore needed a storefront that could support online sales and in-store operations.',
 			outcome: 'One connected system for shopping, payments, inventory, and the in-store kiosk.',
 			featured: true
-		},
-		{
-			name: 'Hannah & Jim Henry',
-			category: 'Wedding & Event Website',
-			description:
-				'A custom wedding website with a purpose-built RSVP workflow. Guest submissions are stored in Supabase, with formatted confirmation emails automatically sent to both the attendee and event host.',
-			capabilities: ['Launch', 'Business Systems', 'Forms', 'Database', 'Email'],
-			url: 'https://hannahweddin.vercel.app',
-			screenshot: '/images/projects/hannah-jim-preview.png',
-			label: 'Live Project',
-			problem:
-				'A wedding celebration needed one clear place for guests, details, RSVPs, and updates.',
-			outcome:
-				'A custom event site with RSVP collection and confirmation emails for guests and hosts.',
-			featured: false
 		}
 	];
 </script>
