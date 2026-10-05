@@ -1,52 +1,30 @@
-# sv
+# Anchorforge Digital
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Marketing site for Anchorforge Digital — affordable small business websites.
+Built with Next.js (App Router, TypeScript) and deployed on Vercel.
 
-## Creating a project
+## Stack
 
-If you're seeing this, you've probably already done this step. Congrats!
+- Next.js 15 + React 19, TypeScript
+- Self-hosted fonts via `next/font` (Playfair Display, Space Grotesk, JetBrains Mono)
+- Nodemailer contact form (Gmail SMTP), see `.env.example`
+- Plain CSS Modules + a global design-token stylesheet
 
-```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-pnpm dlx sv@0.17.0 create --template minimal --no-types --add prettier eslint --install pnpm ./
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Develop
 
 ```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+bun install
+bun run dev
 ```
 
-### Contact form email
-
-The contact form sends inquiries server-side through Nodemailer and Gmail. Copy `.env.example` to
-`.env`, then set `GMAIL_USER` to the Gmail address that will send the messages and
-`GMAIL_APP_PASSWORD` to a Google App Password. App Passwords require 2-Step Verification; do not
-use your normal Gmail password. Keep `.env` private and configure the same variables in your
-hosting provider's environment settings.
-
-## Building
-
-To create a production version of your app:
+## Build
 
 ```sh
-npm run build
+bun run build
+bun run start
 ```
 
-You can preview the production build with `npm run preview`.
+## Environment variables
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
-
-# anchorforgedigital
+Copy `.env.example` and fill in the Gmail App Password (`GMAIL_APP_PASSWORD`).
+`GMAIL_USER`, `CONTACT_TO`, and `MAIL_FROM` have sensible defaults.
