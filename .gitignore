@@ -1,23 +1,18 @@
 node_modules
-
-# Output
-.output
+.next
+out
+build
 .vercel
-.netlify
-.wrangler
-/.svelte-kit
-/build
-
-# OS
-.DS_Store
-Thumbs.db
 
 # Env
 .env
 .env.*
 !.env.example
-!.env.test
 
-# Vite
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
+# OS
+.DS_Store
+Thumbs.db
+
+# TS
+*.tsbuildinfo
+next-env.d.ts
